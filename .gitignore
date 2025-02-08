@@ -1,0 +1,9 @@
+#Ignore Maven build files
+target/
+*.jar
+*.war
+*.log
+#Ignore environment and config files
+application.properties
+application.yml
+.env 
