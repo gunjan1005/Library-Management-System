@@ -1,0 +1,30 @@
+spring:
+  application:
+      name: 10_Api_Gateway
+
+  cloud:
+    gateway:
+      routes:
+         - id: AUTH-SERVICE
+           uri: http://localhost:5555/
+           predicates:
+           - Path=/auth/**
+
+         - id: LIBRARIAN-PROFILE
+           uri: http://localhost:8081/
+           predicates:
+            - Path=/api/library-profiles/**
+
+         - id: BOOK-MANAGEMENT
+           uri: http://localhost:8083/
+           predicates:
+            - Path=/api/books/**
+
+
+         - id: BOOKING-STATUS
+           uri: http://localhost:8084/
+           predicates:
+            - Path=/api/books/**
+
+server:
+  port: 3333
